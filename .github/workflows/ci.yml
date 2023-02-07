@@ -372,7 +372,7 @@ jobs:
           python39-numpy
           python39-pip
           python39-setuptools
-          bash
+          bash ccache
           
     - name: Run CI test script
       shell: 'C:\cygwin\bin\bash.exe -eo pipefail -o igncr "{0}"'
