@@ -374,6 +374,10 @@ jobs:
           python39-setuptools
           bash ccache
           
+    - name: Ensure directories present
+      shell: 'C:\cygwin\bin\bash.exe -eo pipefail -o igncr "{0}"'
+      run: mkdir -p /usr/local/bin /usr/local/lib
+          
     - name: Run CI test script
       shell: 'C:\cygwin\bin\bash.exe -eo pipefail -o igncr "{0}"'
       run: bash ./Tools/ci-run.sh
