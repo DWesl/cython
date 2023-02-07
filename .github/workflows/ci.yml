@@ -367,13 +367,13 @@ jobs:
     - uses: cygwin/cygwin-install-action@v3
       with:
         packages: >-
-          gcc-core gcc-g++
+          gcc-core gcc-g++ ccache
+          bash ninja make cmake
           python39-devel
           python39-numpy
           python39-pip
           python39-setuptools
           python39-pytest
-          bash ccache
           
     - name: Ensure directories present
       shell: 'C:\cygwin\bin\bash.exe -eo pipefail -o igncr "{0}"'
