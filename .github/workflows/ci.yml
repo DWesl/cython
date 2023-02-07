@@ -372,6 +372,7 @@ jobs:
           python39-numpy
           python39-pip
           python39-setuptools
+          python39-pytest
           bash ccache
           
     - name: Ensure directories present
@@ -380,4 +381,6 @@ jobs:
           
     - name: Run CI test script
       shell: 'C:\cygwin\bin\bash.exe -eo pipefail -o igncr "{0}"'
-      run: bash ./Tools/ci-run.sh
+      run: |
+        cp -s /usr/bin/ccache.exe .
+        bash ./Tools/ci-run.sh
