@@ -352,3 +352,28 @@ jobs:
         with:
           name: cycoverage_html
           path: coverage-report-html
+
+  cygwin-ci:
+    name: Cygwin CI
+    runs-on: windows-latest
+    env:
+      CYGWIN_NOWINPATH: 1
+      CHERE_INVOKING: 1
+      SHELLOPTS: igncr
+
+    steps:
+    - run: git config --global core.autocrlf input
+    - uses: actions/checkout@v3
+    - uses: cygwin/cygwin-install-action@v3
+      with:
+        packages: >-
+          gcc-core gcc-g++
+          python39-devel
+          python39-numpy
+          python39-pip
+          python39-setuptools
+          bash
+          
+    - name: Run CI test script
+      shell: 'C:\cygwin\bin\bash.exe -eo pipefail -o igncr "{0}"'
+      run: bash ./Tools/ci-run.sh
