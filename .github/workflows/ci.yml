@@ -374,6 +374,8 @@ jobs:
           python39-pip
           python39-setuptools
           python39-pytest
+          python39-wheel
+          python39-jupyter_core
           
     - name: Ensure directories present
       shell: 'C:\cygwin\bin\bash.exe -eo pipefail -o igncr "{0}"'
