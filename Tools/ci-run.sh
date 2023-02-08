@@ -102,7 +102,7 @@ else
 
   if [[ $PYTHON_VERSION != *"-dev" || $COVERAGE == "1" ]]; then
     python -m pip install -r test-requirements.txt || exit 1
-    if [[ $PYTHON_VERSION != "pypy"* && $PYTHON_VERSION != "3."[1]* ]]; then
+    if [[ $PYTHON_VERSION != "pypy"* && $PYTHON_VERSION != "3."[1]* && `uname -o` != "Cygwin"]]; then
       python -m pip install -r test-requirements-cpython.txt || exit 1
     fi
   fi
